@@ -1,6 +1,10 @@
 <template>
   <div class="toast">
     <slot></slot>
+     <div class="line"></div>
+    <span class="close" v-if="closeButton" @click="onClickclose">
+          {{closeButton.text}}
+        </span>
   </div>
 </template>
 <script>
@@ -15,8 +19,19 @@ export default {
     // 关闭时间
     autoCloseDelay: {
       type: Number,
-      default: 5
-    }
+      default: 3
+    },
+       closeButton: {
+      type: Object,
+      default() {
+        return {
+          text: "关闭",
+          callback: (toast)=>{
+            toast.close()
+          }
+        };
+      }
+    },
   },
   mounted() {
     if (this.autoClose) {
@@ -29,6 +44,12 @@ export default {
     close() {
       this.$el.remove(); //删除
       this.$destroy(); //清除绑定的一些事件
+    },
+    onClickclose(){
+        this.close()
+        if (this.closeButton && typeof this.closeButton.callback === 'function') {
+          this.closeButton.callback()
+        }
     }
   }
 };
