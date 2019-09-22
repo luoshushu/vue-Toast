@@ -17,7 +17,7 @@ export default {
     // 关闭时间
     autoCloseDelay: {
       type: Number,
-      default: 1
+      default: 3
     },
     closeButton: {
       type: Object,

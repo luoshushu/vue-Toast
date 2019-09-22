@@ -20,7 +20,7 @@
          this.xxx('bottom')
       },
       xxx(position) {
-        this.$toast('我是苏宋霖我是苏宋霖我是苏宋霖我是苏宋霖我是苏宋霖我是苏宋霖我是苏宋霖',{
+        this.$toast('我是苏宋霖',{
           position,
             closeButton:{
             text:'知道了',
