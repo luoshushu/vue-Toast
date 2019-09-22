@@ -1,9 +1,8 @@
 <template>
   <div id="app">
-    <!-- <button @click="clickToast1">点击啦top</button>
-      <button @click="clickToast2">点击啦middle</button>
-      <button @click="clickToast3">点击啦bottom</button> -->
-    <button @click="xxx">点击</button>
+    <button @click="xxx1">点击 上</button>
+    <button @click="xxx2">点击 中</button>
+    <button @click="xxx3">点击 下</button>
   </div>
 </template>
 
@@ -11,8 +10,18 @@
   export default {
     name: 'app',
     methods: {
-      xxx() {
+      xxx1(){
+        this.xxx('top')
+      },
+      xxx2(){
+         this.xxx('middle')
+      },
+      xxx3(){
+         this.xxx('bottom')
+      },
+      xxx(position) {
         this.$toast('我是苏宋霖我是苏宋霖我是苏宋霖我是苏宋霖我是苏宋霖我是苏宋霖我是苏宋霖',{
+          position,
             closeButton:{
             text:'知道了',
             callback(){
@@ -21,29 +30,7 @@
           }
         })
       },
-      clickToast1() {
-        this.clickToast('top')
-      },
-      clickToast2() {
-        this.clickToast('middle')
-      },
-      clickToast3() {
-        this.clickToast('bottom')
-      },
-      clickToast(position) {
-        // this.$toast(`操作成功！！  ${parseInt(Math.random()*100) }`,{
-        this.$toast(`操作成功！！！`, {
-          position,
-          enableHtml: false,
-          closeButton: {
-            text: '知道了',
-            callback() {
-              console.log('回调');
-            }
-          },
-          autoClose: 3,
-        })
-      }
+    
     },
   }
 </script>
