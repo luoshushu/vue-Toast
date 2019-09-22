@@ -1,19 +1,10 @@
-// 用户主动使用Vue.use(plugin)
 import Toast from '@/components/Toast.vue'
 export default {
   install(Vue,options){
-    Vue.prototype.$toast = function(message){
+    Vue.prototype.$toast = function(message,toaseOptions){
       let Constructor = Vue.extend(Toast)
       let toast = new Constructor({
-        propsData:{
-          closeButton:{
-            text:'知道了',
-            callback(){
-              console.log('苏宋霖点击知道了');
-              
-            }
-          }
-        }
+        propsData:toaseOptions
       })
       toast.$slots.default = [message]
       toast.$mount()

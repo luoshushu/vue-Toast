@@ -12,7 +12,14 @@
     name: 'app',
     methods: {
       xxx() {
-        this.$toast('我是苏宋霖')
+        this.$toast('我是苏宋霖我是苏宋霖我是苏宋霖我是苏宋霖我是苏宋霖我是苏宋霖我是苏宋霖',{
+            closeButton:{
+            text:'知道了',
+            callback(){
+              console.log('苏宋霖点击知道了');
+            }
+          }
+        })
       },
       clickToast1() {
         this.clickToast('top')
